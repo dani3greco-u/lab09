@@ -1,19 +1,20 @@
 package it.unibo.mvc;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 
- *
+ * Basic implementation of Controller.
  */
 public final class SimpleController implements Controller {
 
-    private List<String> history;
+    private final List<String> history;
     private String nextString;
 
+    /**
+     * Constructor for SimpleController.
+     */
     public SimpleController() {
         this.history = new LinkedList<>();
     }
@@ -39,13 +40,12 @@ public final class SimpleController implements Controller {
     }
 
     @Override
-    public void setNextString(String nextString) {
+    public void setNextString(final String nextString) {
         if (nextString == null) {
             throw new IllegalArgumentException("nextString is null");
         } else {
             this.nextString = nextString;
         }
-        
     }
 
 }
