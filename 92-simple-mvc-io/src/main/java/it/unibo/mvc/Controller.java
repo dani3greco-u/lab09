@@ -21,8 +21,8 @@ public class Controller {
      * @param f
      * @throws IllegalArgumentException
      */
-    void setCurrentFile(File f) throws IllegalArgumentException {
-        File p = f.getParentFile();
+    void setCurrentFile(final File f) throws IllegalArgumentException {
+        final File p = f.getParentFile();
         if(p.exists()) {
             this.currentFile = f;
         }
@@ -36,7 +36,7 @@ public class Controller {
      * 
      * @return the currentFile
      */
-    File getCurrenFile() {
+    File getCurrentFile() {
         return this.currentFile;
     }
 
@@ -55,8 +55,8 @@ public class Controller {
      * @param input
      * @throws IOException
      */
-    void writeOnCurrentFile(String input) throws IOException{
-        try (PrintStream ps = new PrintStream(currentFile, StandardCharsets.UTF_8)) {
+    void writeOnCurrentFile(final String input) throws IOException{
+        try (final PrintStream ps = new PrintStream(currentFile, StandardCharsets.UTF_8)) {
             ps.print(input);
         }
     }
