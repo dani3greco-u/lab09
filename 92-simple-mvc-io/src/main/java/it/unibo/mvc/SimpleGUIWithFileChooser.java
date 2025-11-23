@@ -24,8 +24,11 @@ public final class SimpleGUIWithFileChooser {
     private static final int PROPORTION = 5;
     private final JFrame frame = new JFrame(TITLE);
 
+    /**
+     * Creates a new SimpleGUIWithFileChooser.
+     */
     public SimpleGUIWithFileChooser() {
-        Controller controller = new Controller();
+        final Controller controller = new Controller();
         final JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         final JPanel secondPanel = new JPanel();
@@ -34,17 +37,17 @@ public final class SimpleGUIWithFileChooser {
         /*
         * Text Area 
         */
-        JTextArea text = new JTextArea();
+        final JTextArea text = new JTextArea();
         /*
         * Path field
         */
-        JTextField field = new JTextField();
+        final JTextField field = new JTextField();
         field.setText(controller.getCurrentFilePath());
         field.setEnabled(false);
         /*
         * browse button
         */
-        JButton browse = new JButton("Browse");
+        final JButton browse = new JButton("Browse");
         browse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ignored) {
@@ -66,7 +69,7 @@ public final class SimpleGUIWithFileChooser {
         /*
         * Save button 
         */
-        JButton save = new JButton("Save");
+        final JButton save = new JButton("Save");
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ignored) {
@@ -85,7 +88,7 @@ public final class SimpleGUIWithFileChooser {
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     private void display() {
         /*
          * Make the frame one fifth the resolution of the screen. This very method is

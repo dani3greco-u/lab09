@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
  * Application controller. Performs the I/O.
  */
 public class Controller {
-    
+
     private static final String PATH = System.getProperty("user.home");
     private static final String DAFUALT_FILE = "output.txt";
 
@@ -18,15 +18,14 @@ public class Controller {
     /**
      * Set a new currentFile.
      * 
-     * @param f
-     * @throws IllegalArgumentException
+     * @param f file to set 
+     * @throws IllegalArgumentException if the setting fails
      */
-    void setCurrentFile(final File f) throws IllegalArgumentException {
+    void setCurrentFile(final File f) {
         final File p = f.getParentFile();
-        if(p.exists()) {
+        if (p.exists()) {
             this.currentFile = f;
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Not found " + f.getPath());
         }
     }
@@ -52,11 +51,11 @@ public class Controller {
     /**
      * Write on currentFile.
      * 
-     * @param input
-     * @throws IOException
+     * @param input text to save in currentFile
+     * @throws IOException if the writing fails
      */
-    void writeOnCurrentFile(final String input) throws IOException{
-        try (final PrintStream ps = new PrintStream(currentFile, StandardCharsets.UTF_8)) {
+    void writeOnCurrentFile(final String input) throws IOException {
+        try (PrintStream ps = new PrintStream(currentFile, StandardCharsets.UTF_8)) {
             ps.print(input);
         }
     }

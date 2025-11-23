@@ -22,11 +22,14 @@ public final class SimpleGUI {
     private static final int PROPORTION = 5;
     private final JFrame frame = new JFrame(TITLE);
 
+    /**
+     * Creates a new SimpleGUI.
+     */
     public SimpleGUI() {
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
-        JTextArea text = new JTextArea();
-        JButton save = new JButton("Save");
+        final JTextArea text = new JTextArea();
+        final JButton save = new JButton("Save");
         canvas.add(text, BorderLayout.CENTER);
         canvas.add(save, BorderLayout.SOUTH);
         frame.setContentPane(canvas);
@@ -38,7 +41,7 @@ public final class SimpleGUI {
             @Override
             public void actionPerformed(final ActionEvent ignored) {
                 try {
-                    Controller controller = new Controller();
+                    final Controller controller = new Controller();
                     controller.writeOnCurrentFile(text.getText());
                 } catch (final IOException e) {
                     JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
