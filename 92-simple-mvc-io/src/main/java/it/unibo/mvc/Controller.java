@@ -56,9 +56,9 @@ public class Controller {
      * @throws IOException
      */
     void writeOnCurrentFile(String input) throws IOException{
-        try (PrintStream ps = new PrintStream(PATH, StandardCharsets.UTF_8)) {
+        try (PrintStream ps = new PrintStream(currentFile, StandardCharsets.UTF_8)) {
             ps.print(input);
         }
     }
-    
+
 }
