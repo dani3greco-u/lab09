@@ -76,7 +76,15 @@ public class BadIOGUI {
         read.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent ignored) {
-                System.out.println("Prova"); //NOPMD
+                 try {
+                    final List<String> lines = Files.readAllLines(new File(PATH).toPath());
+                    for (final String l : lines) {
+                        System.out.println(l); //NOPMD
+                    }
+                } catch (final IOException e) {
+                    JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
+                    e.printStackTrace(); // NOPMD: allowed as this is just an exercise
+                }
             }
         });
     }
